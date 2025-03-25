@@ -56,7 +56,6 @@ pip install -r requirements.txt
 TOGETHER_API_KEY=your_api_key_here
 ```
 Replace `your_api_key_here` with your **actual** API key.  
-**Never** commit this key to any public repo.
 
 5. **Run the app**:
 ```bash
