@@ -1,65 +1,103 @@
 # AI-Powered Travel Planner
 
-This project generates personalized travel itineraries using [Together.ai](https://together.ai)'s **Mixtral-8x7B-Instruct** model via API. The app is built with **Streamlit** and includes bonus features for extra personalization.
+This project generates **personalized travel itineraries** using [Together.ai](https://together.ai)'s **Mixtral-8x7B-Instruct** model via API.  
+The app is built with **Streamlit** and includes extra features (e.g., dietary needs, mobility concerns, hotel preferences) for even more personalization.
+
+---
+
+## Table of Contents
+
+1. [Project Structure](#project-structure)  
+2. [Setup](#setup)  
+3. [Usage](#usage)  
+4. [Example Input/Output](#example-inputoutput)  
+5. [Bonus Features](#bonus-features)  
+6. [Future Enhancements](#future-enhancements)
+
+---
 
 ## Project Structure
 
-ai_travel_planner/ ├── .env # Contains your Together.ai API key. ├── app.py # Main Streamlit app to collect user input and display the itinerary. ├── bonus_features.py # Processes optional extra input like dietary needs, mobility concerns, and hotel preferences. ├── prompt_utils.py # Builds a detailed prompt from user inputs. ├── itinerary_generator.py # Calls the Together.ai API to generate the itinerary. ├── requirements.txt # Lists required packages.
+ai_travel_planner/ ├── .env # Your Together.ai API key (not committed) ├── app.py # Streamlit app to collect inputs and display output ├── bonus_features.py # Handles extra preferences (dietary, mobility, hotel) ├── prompt_utils.py # Builds the prompt from user inputs ├── itinerary_generator.py# Calls the Together.ai API ├── requirements.txt # Project dependencies └── README.md # This file
 
-bash
+yaml
 Copy
+Edit
+
+---
 
 ## Setup
 
-1. **Clone the repository:**
+1. **Clone the repository**:
    ```bash
    git clone https://github.com/emceeashish/travel-planner.git
    cd travel-planner
-(Optional) Create a new conda environment or use your existing one:
+(Optional) Create a new conda environment or use an existing one:
 
 bash
 Copy
+Edit
 conda create -n travelplanner python=3.10
 conda activate travelplanner
 Install dependencies:
 
 bash
 Copy
+Edit
 pip install -r requirements.txt
 Create a .env file in the project root with your Together.ai API key:
 
-env
+bash
 Copy
+Edit
+# .env
 TOGETHER_API_KEY=your_api_key_here
-Replace your_api_key_here with your actual API key. (Do not share this key publicly.)
+Replace your_api_key_here with your actual API key.
+Never commit this key to any public repo.
 
-Run the app:
+Run the Streamlit app:
 
 bash
 Copy
+Edit
 streamlit run app.py
+This will open the app in your default web browser.
+
 Usage
-Enter your travel details:
-Fill in your destination, travel dates, budget, and travel preferences.
+Enter Basic Details
 
-Bonus Features (Optional):
-Provide extra details like dietary preferences, mobility concerns, and hotel preferences for an even more refined itinerary.
+Destination (e.g., Kyoto)
 
-Generate Itinerary:
-Click the "Generate Itinerary" button to receive a detailed, day-by-day travel itinerary tailored to your inputs.
+Travel Dates (e.g., 2025-04-01 to 2025-04-04)
 
-Example
-Sample Inputs:
+Budget (e.g., moderate)
+
+Preferences (e.g., culture, temples, food, walkable places)
+
+(Optional) Bonus Inputs
+
+Dietary needs (e.g., vegetarian)
+
+Mobility concerns (e.g., minimal walking)
+
+Hotel preferences (e.g., central)
+
+Generate Itinerary
+
+Click "Generate Itinerary"
+
+Wait for the AI to create a day-by-day travel plan tailored to your inputs
+
+Example Input/Output
+Example Inputs
 
 Destination: Kyoto
 
-Travel Dates: 2025-04-01 to 2025-04-04
+Dates: 2025-04-01 to 2025-04-04
 
 Budget: Moderate
 
 Preferences: Culture, temples, food, walkable places
-
-Bonus (Optional):
 
 Dietary: Vegetarian
 
@@ -67,16 +105,29 @@ Mobility: Minimal walking
 
 Hotel Preference: Central
 
-The AI will produce a personalized itinerary that covers each day of your trip, suggesting activities, dining options, and sightseeing spots that match your criteria.
+Sample Itinerary (Shortened)
 
+yaml
+Copy
+Edit
+Day 1:
+- Morning: Arrive in Kyoto, check in at a central, budget-friendly hotel.
+- Afternoon: Visit Kinkaku-ji (Golden Pavilion). It's accessible for minimal walking.
+- Evening: Dinner at Shigetsu for vegetarian shojin-ryori temple cuisine.
+
+Day 2:
+- Morning: Explore Fushimi Inari Shrine (enjoy lower shrine areas if mobility is limited).
+- Afternoon: Philosopher's Path (flat, paved) and Ginkaku-ji (Silver Pavilion).
+- Evening: Try a gourmet vegetarian meal at Ain Soph Journey Kyoto.
+...
 Bonus Features
-Flexible Input Formats: Accepts extra details like dietary restrictions, mobility needs, and hotel preferences.
+Flexible Input Formats: Accepts extra details (dietary, mobility, hotel preference) for more nuanced itineraries.
 
-Enhanced Personalization: Integrates bonus inputs into the itinerary prompt for a more tailored travel plan.
+Enhanced Personalization: The prompt includes bonus details, refining the final travel plan.
 
 Future Enhancements
-Integrate web search for live attraction data.
+Live Web Search: Fetch real-time attraction data or events.
 
-Enable chat-based interactions for itinerary refinement.
+Chat Refinements: Let users say “Regenerate Day 2” or “Add more cultural spots” for iterative planning.
 
-Export itineraries to PDF or calendar applications.
+Export Options: Generate PDFs or sync with a calendar for easy scheduling.
