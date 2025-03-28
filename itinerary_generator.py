@@ -1,13 +1,14 @@
 import requests
 import os
 from dotenv import load_dotenv
+import streamlit as st
 
 # Make sure our .env file is loaded here as well
 load_dotenv()
 
 def generate_itinerary(prompt):
     # Get the API key from the environment
-    api_key = os.getenv("TOGETHER_API_KEY")
+    api_key = st.secrets["TOGETHER_API_KEY"]
     if not api_key:
         return "Error: API key not set."
 
